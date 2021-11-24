@@ -1,12 +1,12 @@
 <template>
     <li>
-        <header><h1>{{friend.name}}</h1></header>
+        <h2>{{friend.name}}</h2>
         <button @click="toggleDetails">{{visibilityStatus}} Detail</button>
-    </li>
     <ul v-show="detailVisible">
         <li>phone: {{friend.phone}}</li>
         <li>Email: {{friend.email}}</li>
     </ul>
+    </li>
 </template>
 
 <script>

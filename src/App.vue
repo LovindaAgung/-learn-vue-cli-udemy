@@ -1,5 +1,7 @@
 <template>
-    <h2>Friend List</h2>
+    <header>
+        <h1>Friend List</h1>
+    </header>
     <ul>
         <friend-contact></friend-contact>
         <friend-contact></friend-contact>
