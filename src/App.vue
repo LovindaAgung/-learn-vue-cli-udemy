@@ -4,30 +4,35 @@
     </header>
     <ul>
         <friend-contact></friend-contact>
-        <friend-contact></friend-contact>
+        <friend-contact
+          name="galih karismatika husein"
+          phone-number="089192819281"
+          email-address="galih@gmail.com"
+          is-favorite="true"
+        ></friend-contact>
     </ul>
 </template>
 
 <script>
 export default {
-    data(){
-        return {
-            friends:[
-                {
-                    id:'alif',
-                    name: 'alif raher',
-                    phone: '0891234567890',
-                    email: 'alif@gmail.com',
-                },
-                {
-                    id:'galih',
-                    name: 'galih H H',
-                    phone: '0891234567890',
-                    email: 'galih@gmail.com',
-                },
-            ]
-        };
-    }
+    // data(){
+    //     return {
+    //         friends:[
+    //             {
+    //                 id:'alif',
+    //                 name: 'alif raher',
+    //                 phone: '0891234567890',
+    //                 email: 'alif@gmail.com',
+    //             },
+    //             {
+    //                 id:'galih',
+    //                 name: 'galih H H',
+    //                 phone: '0891234567890',
+    //                 email: 'galih@gmail.com',
+    //             },
+    //         ]
+    //     };
+    // }
 }
 </script>
 <style>
