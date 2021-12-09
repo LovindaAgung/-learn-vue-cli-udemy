@@ -1,7 +1,7 @@
 <template>
     <li>
         <h2 class="name" @mouseenter="nameHover" @mouseleave="nameHover">
-            {{name ? name : friend.dataName}} 
+            {{name}} 
             <fa 
                 v-if="favoriteFriend"
                 @click="toggleFavorite" 
@@ -17,28 +17,50 @@
         </h2>
         <button @click="toggleDetails">{{visibilityStatus}} Detail</button>
     <ul v-show="detailVisible">
-        <li>phone: {{friend.phone}}</li>
-        <li>Email: {{friend.email}}</li>
+        <li>phone: {{phoneNumber}}</li>
+        <li>Email: {{emailAddress}}</li>
     </ul>
     </li>
 </template>
 
 <script>
 export default {
-    props:[
-        'name',
-        'phoneNumber',
-        'emailAddress',
-        'isFavorite',
-    ],
+    // props:[
+    //     'name',
+    //     'phoneNumber',
+    //     'emailAddress',
+    //     'isFavorite',
+    // ],
+    props: {
+        name : {
+            type : String,
+            required : true
+        },
+        phoneNumber : {
+            type : String,
+            required : true,
+        },
+        emailAddress : {
+            type : String,
+            required : true,
+        },
+        isFavorite : {
+            type : Boolean,
+            required : false,
+            default : false,
+            validator : function(value){
+                return value === true || value === false;
+            }
+        }
+    },
     data(){
         return {
-            friend:{
-                id:'alif',
-                    dataName: 'alif raher',
-                    phone: '0891234567890',
-                    email: 'alif@gmail.com',
-            },
+            // friend:{
+            //     id:'alif',
+            //         dataName: 'alif raher',
+            //         phone: '0891234567890',
+            //         email: 'alif@gmail.com',
+            // },
             detailVisible:false,
             starVisible:this.isFavorite,
             favoriteFriend:this.isFavorite,
@@ -56,9 +78,9 @@ export default {
         visibilityStatus(){
             return this.detailVisible ? "Hide" : "Show";
         },
-        favorite(){
-            return this.isFavorite ? true : false;
-        },
+        // favorite(){
+        //     return this.isFavorite ? true : false;
+        // },
     },
     methods:{
         toggleDetails(){

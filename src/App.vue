@@ -3,12 +3,16 @@
         <h1>Friend List</h1>
     </header>
     <ul>
-        <friend-contact></friend-contact>
+        <friend-contact
+          name="Alips Raher"
+          phone-number="0811112223334"
+          email-address="alips@gmail.com"
+        ></friend-contact>
         <friend-contact
           name="galih karismatika husein"
           phone-number="089192819281"
           email-address="galih@gmail.com"
-          is-favorite="true"
+          :is-favorite="true"
         ></friend-contact>
     </ul>
 </template>
