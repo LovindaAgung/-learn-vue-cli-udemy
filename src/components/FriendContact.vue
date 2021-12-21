@@ -67,17 +67,10 @@ export default {
             // },
             detailVisible:false,
             starVisible:this.isFavorite,
-            favoriteFriend:this.isFavorite,
         };
     },
     watch:{
-        favoriteFriend(){
-            this.favoriteFriend ? 
-                this.starVisible = true :
-                this.starVisible = false;
-        },
         isFavorite(){
-            // this.favoriteFriend=this.isFavorite;
             this.isFavorite ?
                 this.starVisible = true :
                 this.starVisible = false;
@@ -96,18 +89,11 @@ export default {
             this.detailVisible = !this.detailVisible;
         },
         nameHover(){
-            // console.log("a");
-            // if(!this.favoriteFriend){
-            //     this.starVisible = !this.starVisible;
-            // }else{
-            //     this.starVisible = true;
-            // }
             !this.isFavorite ?
                 this.starVisible = !this.starVisible:
                 this.starVisible = true;
         },
         toggleFavorite(){
-            // this.favoriteFriend = !this.favoriteFriend;
             this.$emit('favorite-toggled',this.id);
             this.starVisible = true;
         },
