@@ -3,7 +3,7 @@
         <h2 class="name" @mouseenter="nameHover" @mouseleave="nameHover">
             {{name}} 
             <fa 
-                v-if="favoriteFriend"
+                v-if="isFavorite"
                 @click="toggleFavorite" 
                 v-show="starVisible" 
                 :icon="['fas','star']">
@@ -32,9 +32,13 @@ export default {
     //     'isFavorite',
     // ],
     props: {
+        id:{
+            type: String,
+            required : true,
+        },
         name : {
             type : String,
-            required : true
+            required : true,
         },
         phoneNumber : {
             type : String,
@@ -72,7 +76,12 @@ export default {
                 this.starVisible = true :
                 this.starVisible = false;
         },
-
+        isFavorite(){
+            // this.favoriteFriend=this.isFavorite;
+            this.isFavorite ?
+                this.starVisible = true :
+                this.starVisible = false;
+        }
     },
     computed: {
         visibilityStatus(){
@@ -93,14 +102,15 @@ export default {
             // }else{
             //     this.starVisible = true;
             // }
-            !this.favoriteFriend ?
+            !this.isFavorite ?
                 this.starVisible = !this.starVisible:
                 this.starVisible = true;
         },
         toggleFavorite(){
-            this.favoriteFriend = !this.favoriteFriend;
+            // this.favoriteFriend = !this.favoriteFriend;
+            this.$emit('favorite-toggled',this.id);
             this.starVisible = true;
-        }
+        },
     }
 };
 </script>

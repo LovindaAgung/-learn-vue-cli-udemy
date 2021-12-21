@@ -4,39 +4,46 @@
     </header>
     <ul>
         <friend-contact
-          name="Alips Raher"
-          phone-number="0811112223334"
-          email-address="alips@gmail.com"
-        ></friend-contact>
-        <friend-contact
-          name="galih karismatika husein"
-          phone-number="089192819281"
-          email-address="galih@gmail.com"
-          :is-favorite="true"
-        ></friend-contact>
+          v-for="friend in friends"
+          :key="friend.id"
+          :id="friend.id"
+          :name="friend.name"
+          :phone-number="friend.phone"
+          :email-address="friend.email"
+          :is-favorite="friend.isFavorite"
+          @favorite-toggled="toggleFavorite"
+        ></friend-contact> 
     </ul>
 </template>
 
 <script>
 export default {
-    // data(){
-    //     return {
-    //         friends:[
-    //             {
-    //                 id:'alif',
-    //                 name: 'alif raher',
-    //                 phone: '0891234567890',
-    //                 email: 'alif@gmail.com',
-    //             },
-    //             {
-    //                 id:'galih',
-    //                 name: 'galih H H',
-    //                 phone: '0891234567890',
-    //                 email: 'galih@gmail.com',
-    //             },
-    //         ]
-    //     };
-    // }
+    data(){
+        return {
+            friends:[
+                {
+                    id:'alif',
+                    name: 'alif raher',
+                    phone: '0891234567890',
+                    email: 'alif@gmail.com',
+                    isFavorite:true,
+                },
+                {
+                    id:'galih',
+                    name: 'galih H H',
+                    phone: '0891234567890',
+                    email: 'galih@gmail.com',
+                    isFavorite:true,
+                },
+            ]
+        };
+    },
+    methods:{
+      toggleFavorite(friendId){
+        const target = this.friends.find(friend => friend.id === friendId);
+        target.isFavorite = !target.isFavorite;
+      }
+    }
 }
 </script>
 <style>
