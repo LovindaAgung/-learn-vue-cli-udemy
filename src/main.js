@@ -9,12 +9,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import App from './App.vue';
 import FriendContact from './components/FriendContact.vue';
+import NewFriend from './components/NewFriend.vue';
 
 library.add(fas,fab,far);
 
 const app = createApp(App);
 
 app.component('friend-contact', FriendContact);
+app.component('new-friend', NewFriend);
+
 app.component('fa', FontAwesomeIcon);
 
 app.mount('#app');

@@ -25,12 +25,6 @@
 
 <script>
 export default {
-    // props:[
-    //     'name',
-    //     'phoneNumber',
-    //     'emailAddress',
-    //     'isFavorite',
-    // ],
     props: {
         id:{
             type: String,
